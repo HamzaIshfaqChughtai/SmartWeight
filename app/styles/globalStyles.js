@@ -12,7 +12,6 @@ export const globalStyles = {
     lineHeight: 38,
     textTransform: "capitalize",
   },
-
   header6: {
     fontFamily: fonts['Gotham-Book'],
     fontSize: 14,
