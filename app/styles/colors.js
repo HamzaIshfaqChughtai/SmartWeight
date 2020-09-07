@@ -14,7 +14,7 @@ export const Colors = {
     smallportion: '#454545',
     smokeWhite: "#F3F3F3",
     skip: "#9A9A9A",
-    Draft: '#C4C4C4',
+    Draft: '#A1A1A1',
     darkgr: "#474747",
     darktext: '#b4b4b4',
     lineColor: "rgba(255,255,255,0.5)",
@@ -26,5 +26,12 @@ export const Colors = {
     chatleftcolor: '#000000',
     BgColor: '#181818',
     DarkBlackHeading: "#171717",
-    Status: '#8625B5'
+    Status: '#8625B5',
+
+    themeDarkRed: '#B50A00',
+    white: 'rgba(255, 255, 255, 1)',
+    themeGrey: '#8D8D8C',
+    black: '#000000',
+    lightBlack: '#313131',
+    Motivationcolor: '#00A0DB',
 }

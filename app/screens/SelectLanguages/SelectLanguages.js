@@ -11,6 +11,7 @@ import {
     ActivityIndicator,
 } from 'react-native';
 import { styles } from './style';
+import { globalStyles } from '../../styles/globalStyles';
 
 import { Colors } from '../../styles/colors';
 import {
@@ -46,9 +47,23 @@ export default class SelectLanguages extends React.Component {
 
                 <Content style={styles.Content}>
 
-                    <Text
-                        onPress={() => this.props.navigation.navigate('Tabs')}
-                        style={styles.SelectLanguage}>Please Select Language</Text>
+                    <View style={{ marginTop: '50%' }}>
+                        <Text style={styles.SelectLanguage}>Please Select Language</Text>
+
+
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('Login')}
+                            style={styles.buttonDesign}>
+                            <Text style={globalStyles.header6}>ENGLISH</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity
+                            style={styles.buttonDesign}
+                            onPress={() => { }}>
+                            <Text style={globalStyles.header6}>عربى</Text>
+                        </TouchableOpacity>
+
+                    </View>
 
                 </Content>
 

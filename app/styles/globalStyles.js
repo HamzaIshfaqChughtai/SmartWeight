@@ -15,7 +15,7 @@ export const globalStyles = {
   header6: {
     fontFamily: fonts['Gotham-Book'],
     fontSize: 14,
-    color: Colors.white,
+    color: Colors.NewBackgroundColor,
     textAlign: 'center',
     letterSpacing: 1.5,
     paddingLeft: 50,
@@ -52,8 +52,7 @@ export const globalStyles = {
   text1: {
     fontFamily: fonts['Gotham-Book'],
     fontSize: 14,
-    color: Colors.white,
-    textTransform: "capitalize",
+    color: Colors.NewBackgroundColor,
   },
 
 }
