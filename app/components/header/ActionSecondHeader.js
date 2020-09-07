@@ -22,7 +22,7 @@ class ActionSecondHeader extends React.Component {
                         <Icon
                             name="arrow-back"
                             style={{ color: '#C4C4C4' }}
-                            style={styles.IconSize} />
+                            />
 
 
                     </Button>

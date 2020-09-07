@@ -52,7 +52,7 @@ export default class SelectLanguages extends React.Component {
 
 
                         <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate('Login')}
+                            onPress={() => this.props.navigation.navigate('Tabs')}
                             style={styles.buttonDesign}>
                             <Text style={globalStyles.header6}>ENGLISH</Text>
                         </TouchableOpacity>
