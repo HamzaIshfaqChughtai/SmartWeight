@@ -2,6 +2,7 @@ import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeStack from './HomeStack';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { Colors } from '../styles/colors';
 import AchievementStack from './AchievementStack';
 import ResturentStack from './ResturentStack';
@@ -26,16 +27,16 @@ const TabRoutes = () => {
         }}
       />
 
-      <Tab.Screen
-        name={'Achievement'}
-        component={AchievementStack}
-        options={{
-          tabBarLabel: 'Achievement',
-          tabBarIcon: ({ color, size }) => (
-            <AntDesign name={'search1'} size={24} color={color} />
-          ),
-        }}
-      />
+      {/*<Tab.Screen*/}
+        {/*name={'Achievement'}*/}
+        {/*component={AchievementStack}*/}
+        {/*options={{*/}
+          {/*tabBarLabel: 'Achievement',*/}
+          {/*tabBarIcon: ({ color, size }) => (*/}
+            {/*<AntDesign name={'search1'} size={24} color={color} />*/}
+          {/*),*/}
+        {/*}}*/}
+      {/*/>*/}
 
       <Tab.Screen
         name={'Resturent'}
@@ -43,10 +44,20 @@ const TabRoutes = () => {
         options={{
           tabBarLabel: 'Resturent',
           tabBarIcon: ({ color, size }) => (
-            <SimpleLineIcons name={'book-open'} size={24} color={color} />
+            <FontAwesome5 name={'concierge-bell'} size={24} color={color} />
           ),
         }}
       />
+        <Tab.Screen
+            name={'NotificationsTab'}
+            component={NotificationsStack}
+            options={{
+                tabBarLabel: 'Notification',
+                tabBarIcon: ({ color, size }) => (
+                    <AntDesign name={'bells'} size={24} color={color} />
+                ),
+            }}
+        />
 
       <Tab.Screen
         name={'ProfileTab'}
@@ -59,16 +70,6 @@ const TabRoutes = () => {
         }}
       />
 
-      <Tab.Screen
-        name={'NotificationsTab'}
-        component={NotificationsStack}
-        options={{
-          tabBarLabel: 'Notification',
-          tabBarIcon: ({ color, size }) => (
-            <AntDesign name={'bells'} size={24} color={color} />
-          ),
-        }}
-      />
     </Tab.Navigator>
   );
 };
