@@ -11,6 +11,7 @@ import MotivationJoinUs from '../screens/Registered/MotivationJoinUs'
 import Letstalkfood from '../screens/Registered/Letstalkfood'
 import QuestionForm from '../screens/Registered/QuestionForm'
 import Letstalkfoodsecond from '../screens/Registered/Letstalkfoodsecond'
+import AfterQuestionForm from '../screens/Registered/AfterQuestionForm'
 const Stack = createStackNavigator();
 
 const StackRoute = ({ navigation }) => {
@@ -63,6 +64,12 @@ const StackRoute = ({ navigation }) => {
           component={Letstalkfoodsecond}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name={'AfterQuestionForm'}
+          component={AfterQuestionForm}
+          options={{ headerShown: false }}
+        />
+
 
 
 

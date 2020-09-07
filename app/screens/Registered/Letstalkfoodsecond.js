@@ -56,7 +56,7 @@ export default class Letstalkfoodsecond extends React.Component {
 
 
                         <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate('QuestionForm')}
+                            onPress={() => this.props.navigation.navigate('AfterQuestionForm')}
                             style={[styles.buttonDesign, { marginTop: '6%', backgroundColor: Colors.white }]}>
                             <Text style={[globalStyles.header6, { color: Colors.Status, fontFamily: fonts['Gotham-Bold'] }]}>I'm in</Text>
                         </TouchableOpacity>
