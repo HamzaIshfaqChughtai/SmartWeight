@@ -11,6 +11,7 @@ const windowHeight = Dimensions.get('window').height;
 export const styles = StyleSheet.create({
     container: {
        flex:1,
+        backgroundColor:'white',
         alignItems:'center',
     },
     cardstyle:{
@@ -20,8 +21,12 @@ export const styles = StyleSheet.create({
          margin:10,
         paddingLeft:11,
         paddingRight:10,
-        borderBottomStartRadius:40,
-        borderBottomEndRadius:40,
+        borderRadius:20,
+        elevation: 2,
+        shadowColor: 'rgba(0,0,0,0.8)',
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.4,
+        shadowRadius: 1,
 
     },
     text_welcome: {
@@ -42,18 +47,38 @@ export const styles = StyleSheet.create({
     },
     textfood:{
         marginRight:15,
-        fontSize: 27,
+        fontSize: 20,
         color:Colors.otherChatBubbleColor,
         paddingTop:5,
         textAlign: "center",
     },
     textGuide:{
 
-        fontSize: 27,
+        fontSize: 20,
         color:Colors.otherChatBubbleColor,
         textAlign: "center",
         paddingTop:5,
+    },
+    promo_mainview:{
+        flexDirection:'row',justifyContent:'space-between'
+    },
+    daily_promo_mainview:{
+        flexDirection:'row',marginTop:'15%'
+    },
+    promo_column:{
+       marginLeft:'10%'
+    },
+    dark_text:{
+        color:Colors.otherChatBubbleColor,fontSize:15
+    },
+    portiontext:{
+        color:Colors.Status,
+        fontSize:17,
+        fontWeight:'bold',
+        textAlign:'center'
+
     }
+
 
 });
 
