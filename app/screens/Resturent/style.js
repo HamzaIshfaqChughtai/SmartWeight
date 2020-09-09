@@ -158,6 +158,43 @@ export const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 0.7,
         shadowRadius: 2,
+    },
+    resturentImage: {
+        height: 240,
+        width: '100%'
+    },
+    ResturnetNameType: {
+        backgroundColor: Colors.white,
+        height: 60,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        padding: 10,
+    },
+    Point: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginLeft: 15,
+        marginRight: 15
+    },
+    borderline: {
+        width: '50%',
+        borderWidth: 0.5,
+        borderRadius: 40
+    },
+    SliderView: {
+        flexDirection: 'row',
+        marginLeft: 40,
+        justifyContent: 'space-between'
+    },
+    SliderStyle: {
+        width: 28,
+        height: 28,
+        borderRadius: 30 / 2,
+        backgroundColor: Colors.smokeWhite,
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 2,
+        shadowOpacity: 0.35,
     }
 });
 

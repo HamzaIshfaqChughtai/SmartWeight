@@ -7,6 +7,9 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Iconss from 'react-native-vector-icons/MaterialIcons';
+
+
 // import ActionSecondHeader from '../../../components/ActionSecondHeader';
 import { styles } from './style';
 import { Colors } from '../../styles/colors';
@@ -27,7 +30,6 @@ const ResturentProfile = ({ navigation }) => {
     const [sliderValue, setSliderValue] = useState(0)
     const [selfcontrol, setSelfcontrol] = useState(false)
     const [status, setStatus] = useState(false)
-
     const [Profile, setPrfile] = React.useState([
         {
             image: require('../../images/BloodPressure.png'),
@@ -88,27 +90,23 @@ const ResturentProfile = ({ navigation }) => {
                 showsVerticalScrollIndicator={false}>
 
 
+
                 <Image
-                    style={{
-                        height: 240,
-                        width: '100%'
-                    }}
+                    style={styles.resturentImage}
                     source={require('../../images/res.jpg')} />
 
-                <View style={{
-                    backgroundColor: Colors.white,
-                    height: 60,
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    padding: 10,
-                }}>
+                <View style={{ position: "absolute", top: 10, left: 4 }}>
+                    <Iconss name="keyboard-arrow-left" style={{ fontSize: 40, color: Colors.white }} />
+                </View>
+
+                <View style={styles.ResturnetNameType}>
+
                     <View>
                         <Text style={styles.ResturentName}>Resturant Lahore</Text>
                         <Text style={styles.ProfileResturentType}>Vegetrain</Text>
                     </View>
 
                     <Icon name="map-marker" style={{ fontSize: 28 }} />
-
 
                 </View>
 
@@ -122,20 +120,10 @@ const ResturentProfile = ({ navigation }) => {
 
                     <View style={styles.ViewHead} />
 
-                    <View style={{
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                        marginLeft: 15,
-                        marginRight: 15
-                    }}>
+                    <View style={styles.Point}>
                         <Text style={styles.Suggested}>Name</Text>
                         <Text style={styles.Suggested}>Points</Text>
                     </View>
-
-
-
-
-
 
                     <FlatList
                         showsHorizontalScrollIndicator={false}
@@ -176,35 +164,18 @@ const ResturentProfile = ({ navigation }) => {
                                             </View>
                                         </View>
 
-                                        <View style={{
-                                            width: '50%',
-                                            borderWidth: 0.5,
-                                            borderRadius: 40
-                                        }} />
+                                        <View style={styles.borderline} />
 
                                         <Text style={styles.ResturentKm}>{item.km}</Text>
 
                                     </View>
 
-                                    <View style={{
-                                        flexDirection: 'row',
-                                        marginLeft: 40,
-                                        justifyContent: 'space-between'
-                                    }}>
+                                    <View style={styles.SliderView}>
 
 
                                         <Slider
                                             minimumValue={0}
-                                            thumbStyle={{
-                                                width: 28,
-                                                height: 28,
-                                                borderRadius: 30 / 2,
-                                                backgroundColor: Colors.smokeWhite,
-                                                shadowColor: 'black',
-                                                shadowOffset: { width: 0, height: 2 },
-                                                shadowRadius: 2,
-                                                shadowOpacity: 0.35,
-                                            }}
+                                            thumbStyle={styles.SliderStyle}
                                             style={{ width: 140 }}
                                             maximumValue={100}
                                             minimumTrackTintColor={Colors.Status}
