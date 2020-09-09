@@ -12,6 +12,8 @@ import Letstalkfood from '../screens/Registered/Letstalkfood'
 import QuestionForm from '../screens/Registered/QuestionForm'
 import Letstalkfoodsecond from '../screens/Registered/Letstalkfoodsecond'
 import AfterQuestionForm from '../screens/Registered/AfterQuestionForm'
+import Search from '../screens/Resturent/Search'
+import ResturentProfile from '../screens/Resturent/ResturentProfile'
 const Stack = createStackNavigator();
 
 const StackRoute = ({ navigation }) => {
@@ -67,6 +69,16 @@ const StackRoute = ({ navigation }) => {
         <Stack.Screen
           name={'AfterQuestionForm'}
           component={AfterQuestionForm}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={'Search'}
+          component={Search}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={'ResturentProfile'}
+          component={ResturentProfile}
           options={{ headerShown: false }}
         />
 

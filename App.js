@@ -9,7 +9,7 @@ import getTheme from './native-base-theme/components'
 // import configureStore from './app/redux/createStore'
 import SplashScreen from 'react-native-splash-screen'
 import StackRoute from './app/navigation/StackRoute';
-
+console.disableYellowBox = true
 // LogBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader', 'RNDeviceInfo', 'Warning: An update']);
 const App = () => {
   // const store = configureStore()

@@ -202,9 +202,6 @@ export default class MotivationJoinUs extends React.Component {
                             <Text style={[globalStyles.header6, { color: Colors.white }]}>Next</Text>
                         </TouchableOpacity>
 
-
-                        {/* </View> */}
-                        {/* </View> */}
                     </View>
 
                 </Content>
