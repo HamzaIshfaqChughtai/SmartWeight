@@ -13,8 +13,6 @@ import {
 } from 'react-native';
  import { styles } from './style';
 import ProgressCircle from 'react-native-progress-circle'
-import SearchHeader from '../../components/SearchHeader/SearchHeader'
-import Search from '../../components/SearchHeader/SearchHeader'
 import CustomCard from '../../components/DashboardCard/Card'
 import { globalStyles } from '../../styles/globalStyles';
 import {Collapse,CollapseHeader, CollapseBody} from 'accordion-collapse-react-native';
@@ -217,16 +215,6 @@ componentDidMount(){
         return(
             <View>
                 {this.renderBreakFast()}
-                {this.renderLunch()}
-                {this.renderDinner()}
-                {this.renderSnacks()}
-                <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:20,marginRight:'10%', alignItems: 'center',justifyContent: 'center',}}>
-                    <CustomCard cardstyle={styles.customcard} textStyle={styles.TextColorStyle}  title="Track Baverage" icon={<FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />} number="8 Glasses" numberstyle={styles.TextColorStyle}></CustomCard>
-                    <CustomCard  cardstyle={styles.customcard} textStyle={styles.TextColorStyle}  title="Track Weight" icon={<FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />} number="180 Ibs" numberstyle={styles.TextColorStyle}></CustomCard>
-
-                </View>
-
-                {this.renderActivityTracker()}
             </View>
         )
     }

@@ -27,6 +27,9 @@ export const Colors = {
     BgColor: '#181818',
     DarkBlackHeading: "#171717",
     Status: '#8625B5',
+    BGNEW: '#F3F3F3',
+    lightgray: '#A1A1A1',
+
 
     themeDarkRed: '#B50A00',
     white: 'rgba(255, 255, 255, 1)',

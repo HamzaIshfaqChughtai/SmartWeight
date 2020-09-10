@@ -47,163 +47,161 @@ export default class MotivationJoinUs extends React.Component {
     render() {
 
         return (
-            <Container style={{ backgroundColor: Colors.white, }}>
+            <Container style={{ backgroundColor: Colors.BGNEW, }}>
 
-                <Content showsVerticalScrollIndicator={false}>
+                <Content
+                    style={{ margin: 20 }}
+                    showsVerticalScrollIndicator={false}>
 
-                    <View style={styles.CardCover}>
+                    {/* <View style={styles.CardCover}> */}
 
-                        <View style={styles.MotivationViewShadow}>
-
-                            <Text style={styles.CreateProfileColor}>Motivation to join us</Text>
-
-                            <View style={styles.InnerPortion}>
-
-                                <TouchableOpacity
-                                    style={[styles.Motivationcardview, {
-                                        borderWidth: this.state.weightloss === true ? 0 : 1,
-                                        backgroundColor:
-                                            this.state.weightloss === true ? Colors.Motivationcolor : Colors.white,
-                                    }]}
-                                    onPress={() => this.setState({ weightloss: !this.state.weightloss })}>
-
-                                    <View style={styles.MotivationInnerView}>
-                                        <Text
-                                            style={[styles.MotivationInnerText, {
-                                                color: this.state.weightloss === true ? Colors.white : Colors.NewBackgroundColor,
-                                            }]}>Weight loss </Text>
-
-                                        <Icon
-                                            name={'check'}
-                                            style={styles.IconCheck}
-                                        />
-
-                                    </View>
-
-                                </TouchableOpacity>
+                    {/* <View style={styles.MotivationViewShadow}> */}
 
 
+                    <View style={styles.MotivationQuestionCover}>
+                        <Text style={styles.MotivationQuestiontext}>Motivation to join us</Text>
+                    </View>
 
 
-                                <TouchableOpacity
-                                    style={[styles.Motivationcardview, {
-                                        borderWidth: this.state.health === true ? 0 : 1,
-                                        backgroundColor:
-                                            this.state.health === true ? Colors.Motivationcolor : Colors.white,
-                                        marginTop: 20
-                                    }]}
-                                    onPress={() => this.setState({ health: !this.state.health })}>
+                    <View style={styles.InnerPortion}>
 
-                                    <View style={styles.MotivationInnerView}>
-                                        <Text
-                                            style={[styles.MotivationInnerText, {
-                                                color: this.state.health === true ? Colors.white : Colors.NewBackgroundColor,
-                                            }]}>Health </Text>
+                        <TouchableOpacity
+                            style={[styles.MotivationAnser, {
+                                backgroundColor:
+                                    this.state.weightloss === true ? Colors.Motivationcolor : Colors.white,
+                            }]}
+                            onPress={() => this.setState({ weightloss: !this.state.weightloss })}>
 
-                                        <Icon
-                                            name={'check'}
-                                            style={styles.IconCheck}
-                                        />
+                            <View style={styles.MotivationInnerView}>
+                                <Text
+                                    style={[styles.MotivationInnerText, {
+                                        color: this.state.weightloss === true ? Colors.white : Colors.NewBackgroundColor,
+                                    }]}>Weight loss </Text>
 
-                                    </View>
-
-                                </TouchableOpacity>
-
-
-
-
-
-
-                                <TouchableOpacity
-                                    style={[styles.Motivationcardview, {
-                                        borderWidth: this.state.improve === true ? 0 : 1,
-                                        backgroundColor:
-                                            this.state.improve === true ? Colors.Motivationcolor : Colors.white,
-                                        marginTop: 20
-                                    }]}
-                                    onPress={() => this.setState({ improve: !this.state.improve })}>
-
-                                    <View style={styles.MotivationInnerView}>
-                                        <Text
-                                            style={[styles.MotivationInnerText, {
-                                                color: this.state.improve === true ? Colors.white : Colors.NewBackgroundColor,
-                                            }]}>Improving lifestyle </Text>
-
-                                        <Icon
-                                            name={'check'}
-                                            style={styles.IconCheck}
-                                        />
-
-                                    </View>
-
-                                </TouchableOpacity>
-
-
-
-
-
-
-                                <TouchableOpacity
-                                    style={[styles.Motivationcardview, {
-                                        borderWidth: this.state.fitness === true ? 0 : 1,
-                                        backgroundColor:
-                                            this.state.fitness === true ? Colors.Motivationcolor : Colors.white,
-                                        marginTop: 20
-                                    }]}
-                                    onPress={() => this.setState({ fitness: !this.state.fitness })}>
-
-                                    <View style={styles.MotivationInnerView}>
-                                        <Text
-                                            style={[styles.MotivationInnerText, {
-                                                color: this.state.fitness === true ? Colors.white : Colors.NewBackgroundColor,
-                                            }]}>Fitnesss </Text>
-
-                                        <Icon
-                                            name={'check'}
-                                            style={styles.IconCheck}
-                                        />
-
-                                    </View>
-
-                                </TouchableOpacity>
-
-
-
-                                <TouchableOpacity
-                                    style={[styles.Motivationcardview, {
-                                        borderWidth: this.state.selfcontrol === true ? 0 : 1,
-                                        backgroundColor:
-                                            this.state.selfcontrol === true ? Colors.Motivationcolor : Colors.white,
-                                        marginTop: 20
-                                    }]}
-                                    onPress={() => this.setState({ selfcontrol: !this.state.selfcontrol })}>
-
-                                    <View style={styles.MotivationInnerView}>
-                                        <Text
-                                            style={[styles.MotivationInnerText, {
-                                                color: this.state.selfcontrol === true ? Colors.white : Colors.NewBackgroundColor,
-                                            }]}>Self control </Text>
-
-                                        <Icon
-                                            name={'check'}
-                                            style={styles.IconCheck}
-                                        />
-
-                                    </View>
-
-                                </TouchableOpacity>
-
-
-
-                                <TouchableOpacity
-                                    onPress={() => this.props.navigation.navigate('Letstalkfood')}
-                                    style={[styles.buttonDesign, { marginTop: 30, marginBottom: 30 }]}>
-                                    <Text style={[globalStyles.header6, { color: Colors.white }]}>Next</Text>
-                                </TouchableOpacity>
-
+                                <Icon
+                                    name={'check'}
+                                    style={styles.IconCheck}
+                                />
 
                             </View>
-                        </View>
+
+                        </TouchableOpacity>
+
+
+
+
+                        <TouchableOpacity
+                            style={[styles.MotivationAnser, {
+                                backgroundColor:
+                                    this.state.health === true ? Colors.Motivationcolor : Colors.white,
+                                marginTop: 20
+                            }]}
+                            onPress={() => this.setState({ health: !this.state.health })}>
+
+                            <View style={styles.MotivationInnerView}>
+                                <Text
+                                    style={[styles.MotivationInnerText, {
+                                        color: this.state.health === true ? Colors.white : Colors.NewBackgroundColor,
+                                    }]}>Health </Text>
+
+                                <Icon
+                                    name={'check'}
+                                    style={styles.IconCheck}
+                                />
+
+                            </View>
+
+                        </TouchableOpacity>
+
+
+
+
+
+
+                        <TouchableOpacity
+                            style={[styles.MotivationAnser, {
+                                backgroundColor:
+                                    this.state.improve === true ? Colors.Motivationcolor : Colors.white,
+                                marginTop: 20
+                            }]}
+                            onPress={() => this.setState({ improve: !this.state.improve })}>
+
+                            <View style={styles.MotivationInnerView}>
+                                <Text
+                                    style={[styles.MotivationInnerText, {
+                                        color: this.state.improve === true ? Colors.white : Colors.NewBackgroundColor,
+                                    }]}>Improving lifestyle </Text>
+
+                                <Icon
+                                    name={'check'}
+                                    style={styles.IconCheck}
+                                />
+
+                            </View>
+
+                        </TouchableOpacity>
+
+
+
+
+
+
+                        <TouchableOpacity
+                            style={[styles.MotivationAnser, {
+                                backgroundColor:
+                                    this.state.fitness === true ? Colors.Motivationcolor : Colors.white,
+                                marginTop: 20
+                            }]}
+                            onPress={() => this.setState({ fitness: !this.state.fitness })}>
+
+                            <View style={styles.MotivationInnerView}>
+                                <Text
+                                    style={[styles.MotivationInnerText, {
+                                        color: this.state.fitness === true ? Colors.white : Colors.NewBackgroundColor,
+                                    }]}>Fitnesss </Text>
+
+                                <Icon
+                                    name={'check'}
+                                    style={styles.IconCheck}
+                                />
+
+                            </View>
+
+                        </TouchableOpacity>
+
+
+
+                        <TouchableOpacity
+                            style={[styles.MotivationAnser, {
+                                backgroundColor:
+                                    this.state.selfcontrol === true ? Colors.Motivationcolor : Colors.white,
+                                marginTop: 20
+                            }]}
+                            onPress={() => this.setState({ selfcontrol: !this.state.selfcontrol })}>
+
+                            <View style={styles.MotivationInnerView}>
+                                <Text
+                                    style={[styles.MotivationInnerText, {
+                                        color: this.state.selfcontrol === true ? Colors.white : Colors.NewBackgroundColor,
+                                    }]}>Self control </Text>
+
+                                <Icon
+                                    name={'check'}
+                                    style={styles.IconCheck}
+                                />
+
+                            </View>
+
+                        </TouchableOpacity>
+
+
+
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('Letstalkfood')}
+                            style={[styles.buttonDesign, { marginTop: 30, marginBottom: 30 }]}>
+                            <Text style={[globalStyles.header6, { color: Colors.white }]}>Next</Text>
+                        </TouchableOpacity>
+
                     </View>
 
                 </Content>

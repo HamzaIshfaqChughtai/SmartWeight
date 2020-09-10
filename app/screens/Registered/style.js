@@ -133,7 +133,58 @@ export const styles = StyleSheet.create({
 
 
 
-    //motivatipn
+    //Motivation to join us
+
+
+    MotivationQuestionCover: {
+        height: 100,
+        borderRadius: 20,
+        backgroundColor: Colors.white,
+        width: '100%',
+        justifyContent: 'center',
+        alignSelf: 'center',
+    },
+    MotivationQuestiontext: {
+        color: Colors.Status,
+        justifyContent: 'center',
+        alignSelf: 'center',
+        fontSize: 24,
+        fontFamily: fonts['Gotham-Medium'],
+        letterSpacing: 0.04,
+    },
+    InnerPortion: {
+        marginLeft: 20,
+        marginRight: 20,
+        marginTop: 40
+    },
+    MotivationAnser: {
+        width: '100%',
+        borderColor: Colors.Status,
+        height: 50,
+        elevation: 2,
+        shadowColor: 'rgba(0,0,0,0.8)',
+        shadowOffset: { width: 0, height: 5 },
+        shadowOpacity: 0.7,
+        shadowRadius: 5,
+        borderRadius: 20,
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     CardCover: {
         marginTop: 50,
@@ -265,6 +316,27 @@ export const styles = StyleSheet.create({
         alignSelf: 'center',
         height: 260,
         width: 260,
-    }
+    },
+
+    //after question
+    afterquestionCardCover: {
+        marginBottom: 100,
+        marginTop: 20,
+        marginLeft: 15,
+        marginRight: 15,
+    },
+
+    afterquestion: {
+        color: Colors.Status,
+        justifyContent: 'center',
+        alignSelf: 'center',
+        fontSize: 24,
+        marginLeft: 20,
+        marginRight: 20,
+        marginTop: 20,
+        fontFamily: fonts['Gotham-Medium'],
+        letterSpacing: 0.04,
+        lineHeight: 28
+    },
 });
 
