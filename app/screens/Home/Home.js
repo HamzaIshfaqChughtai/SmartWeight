@@ -8,12 +8,19 @@ import {
     TouchableOpacity,
     TouchableHighlight,
     Image,
+    FlatList,
     ActivityIndicator,
 } from 'react-native';
  import { styles } from './style';
 import ProgressCircle from 'react-native-progress-circle'
 import SearchHeader from '../../components/SearchHeader/SearchHeader'
 import Search from '../../components/SearchHeader/SearchHeader'
+import CustomCard from '../../components/DashboardCard/Card'
+import { globalStyles } from '../../styles/globalStyles';
+import {Collapse,CollapseHeader, CollapseBody} from 'accordion-collapse-react-native';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+
 
 import { Colors } from '../../styles/colors';
 import {
@@ -23,6 +30,11 @@ import {
     Card,
     Form,
     Item,
+    List,
+    ListItem,
+    Left,
+    Right,
+    Icon,
     CheckBox,
     Input,
     Thumbnail,
@@ -31,7 +43,42 @@ import {
     Button,
     FooterTab,
 } from 'native-base';
+const data1 = [
+    {
 
+        title: "Water",
+    },
+    {
+        title: "apple",
+    },
+    {
+        title: "bana",
+    },
+    {
+        title: "banana",
+    },
+    {
+        title: "banan",
+    },
+    {
+        title: "anana",
+    },
+    {
+        title: "baana",
+    },
+]
+const data2 = [
+    {
+
+        title: " 1 Portion Apple ",
+    },
+    {
+        title: " 2 Portion Egg ",
+    },
+    {
+        title: "Cereal",
+    },
+]
 
 export default class Home extends React.Component {
 
@@ -40,26 +87,31 @@ export default class Home extends React.Component {
         this.state = {
             food:true,
             guide:true,
+            active: 1
 
         };
     }
-
+componentDidMount(){
+    console.disableYellowBox = true;
+}
 
 
     render() {
 
         return (
             <View style={styles.container}>
+                <ScrollView>
                     {this.renderheaderCard()}
                 { this.state.food === true ?
-                    <TouchableHighlight>
-                        <View>
-                            <Text style={styles.text_name}>Food Screen Content</Text>
-                        </View>
-                    </TouchableHighlight>
+                    <View>
+                        {this.foodTab()}
+                    </View>
                     :
-                    <Text style={styles.text_name}>Guide screen Content</Text>
+                    <View>
+                        {this.guideTab()}
+                    </View>
                 }
+                </ScrollView>
              </View>
         );
     }
@@ -91,7 +143,7 @@ export default class Home extends React.Component {
         <View style={{
             borderStyle: 'dotted',
             height:40,
-            marginLeft:'5%',
+            marginLeft:'7%',
            borderColor:Colors.Status,
             borderLeftWidth:5
         }}/>
@@ -107,7 +159,7 @@ export default class Home extends React.Component {
         <View style={{
             borderStyle: 'dotted',
             height:40,
-            marginLeft:'5%',
+            marginLeft:'7%',
             borderColor:Colors.Motivationcolor,
             borderLeftWidth:5
         }}/>
@@ -129,7 +181,9 @@ export default class Home extends React.Component {
                        shadowColor="#999"
                        bgColor="#fff"
                    >
-                       <Text style={{ fontSize: 14 }}>Daily Remaining {'\n'}         <Text style={styles.portiontext}>16</Text> {'\n'}   <Text style={styles.portiontext}>Portions</Text></Text>
+                       <Text style={{ fontSize: 14 }}>Daily Remaining</Text>
+                       <Text style={styles.portiontext}>16</Text>
+                       <Text style={styles.portiontext}>Portions</Text>
                    </ProgressCircle>
                </View>
            </View>
@@ -144,15 +198,345 @@ export default class Home extends React.Component {
     foodTab = () => {
         return(
                 <View>
-                    <Text style={styles.text_welcome}>food tab</Text>
+                    {/*<Text style={styles.homebuttons}>food tab</Text>*/}
+                    {this.renderBreakFast()}
+                    {this.renderLunch()}
+                    {this.renderDinner()}
+                    {this.renderSnacks()}
+                    <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:20,marginRight:'10%', alignItems: 'center',justifyContent: 'center',}}>
+                        <CustomCard cardstyle={styles.customcard} textStyle={styles.TextColorStyle}  title="Track Baverage" icon={<FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />} number="8 Glasses" numberstyle={styles.TextColorStyle}></CustomCard>
+                        <CustomCard  cardstyle={styles.customcard} textStyle={styles.TextColorStyle}  title="Track Weight" icon={<FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />} number="180 Ibs" numberstyle={styles.TextColorStyle}></CustomCard>
+
+                    </View>
+
+                    {this.renderActivityTracker()}
                 </View>
         )
     }
     guideTab = () => {
         return(
             <View>
-                <Text style={styles.text_welcome}>Guide tab</Text>
+                {this.renderBreakFast()}
+                {this.renderLunch()}
+                {this.renderDinner()}
+                {this.renderSnacks()}
+                <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:20,marginRight:'10%', alignItems: 'center',justifyContent: 'center',}}>
+                    <CustomCard cardstyle={styles.customcard} textStyle={styles.TextColorStyle}  title="Track Baverage" icon={<FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />} number="8 Glasses" numberstyle={styles.TextColorStyle}></CustomCard>
+                    <CustomCard  cardstyle={styles.customcard} textStyle={styles.TextColorStyle}  title="Track Weight" icon={<FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />} number="180 Ibs" numberstyle={styles.TextColorStyle}></CustomCard>
+
+                </View>
+
+                {this.renderActivityTracker()}
             </View>
+        )
+    }
+    renderBreakFast = () => {
+        return(
+            <Collapse>
+                <CollapseHeader onPress={()=>this.setState({food:false})} style={[styles.homebuttons,{ backgroundColor: this.state.food === false ? Colors.Status : 'white',}]}>
+                    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
+                        <Text
+                            style={[styles.QuestionInnerText, {
+                                color: this.state.active === 2 ? Colors.white : Colors.NewBackgroundColor,
+                            }]}>Breakast
+                        </Text>
+                        <Text
+                            style={styles.QuestionInnerText}><FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" /></Text>
+                    </View>
+                </CollapseHeader>
+                <CollapseBody>
+                    <View>
+                        <Card style={[styles.iconbuttons,{ backgroundColor:'white',}]}>
+                            <FlatList
+                                horizontal
+                                nestedScrollEnabled
+                                showsHorizontalScrollIndicator={false}
+                                data={data1}
+                                style={{marginLeft:10,marginRight:10}}
+                                renderItem={({ item: rowData }) => {
+                                    return (
+                                        <View   style={styles.common_field}>
+                                            <TouchableOpacity
+                                                style={styles.button_farword}
+                                                onPress={this.openHomeScreen}
+                                            >
+                                                <FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />
+                                            </TouchableOpacity>
+                                        </View>
+                                    );
+                                }}
+                                keyExtractor={(item, index) => index.toString()}
+                            />
+                        </Card>
+                    </View>
+                    <Card  style={styles.collap_cardstyle}>
+                        <Text style={styles.text_name}>Slider Area</Text>
+                        <FlatList
+                            showsVerticalScrollIndicator={false}
+                            nestedScrollEnabled
+                            data={data2}
+                            style={{marginLeft:10,marginRight:10}}
+                            renderItem={({ item: rowData }) => {
+                                return (
+                                    <View   style={styles.common_field}>
+                                        <List>
+                                            <ListItem selected>
+                                                <Left>
+                                                    <Text>{rowData.title}</Text>
+                                                </Left>
+                                                <Right>
+                                                    <FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />
+                                                </Right>
+                                            </ListItem>
+                                        </List>
+                                    </View>
+                                );
+                            }}
+                            keyExtractor={(item, index) => index.toString()}
+                        />
+                        <TouchableOpacity
+                            style={[styles.buttonDesign, { marginTop: 5, marginBottom: 20 }]}>
+                            <Text style={[globalStyles.header6, { color: Colors.white }]}>Track</Text>
+                        </TouchableOpacity>
+                    </Card>
+                </CollapseBody>
+            </Collapse>
+        )
+    }
+    renderLunch = () => {
+        return(
+            <Collapse>
+                <CollapseHeader onPress={()=>this.setState({food:false})} style={[styles.homebuttons,{ backgroundColor: this.state.food === false ? Colors.Status : 'white',}]}>
+                    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
+                        <Text
+                            style={[styles.QuestionInnerText, {
+                                color: this.state.active === 2 ? Colors.white : Colors.NewBackgroundColor,
+                            }]}>Lunch
+                        </Text>
+                        <Text
+                            style={styles.QuestionInnerText}><FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" /></Text>
+                    </View>
+                </CollapseHeader>
+                <CollapseBody>
+                    <View>
+                        <Card style={[styles.iconbuttons,{ backgroundColor:'white',}]}>
+                            <FlatList
+                                horizontal
+                                nestedScrollEnabled
+                                showsHorizontalScrollIndicator={false}
+                                data={data1}
+                                style={{marginLeft:10,marginRight:10}}
+                                renderItem={({ item: rowData }) => {
+                                    return (
+                                        <View   style={styles.common_field}>
+                                            <TouchableOpacity
+                                                style={styles.button_farword}
+                                                onPress={this.openHomeScreen}
+                                            >
+                                                <FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />
+                                            </TouchableOpacity>
+                                        </View>
+                                    );
+                                }}
+                                keyExtractor={(item, index) => index.toString()}
+                            />
+                        </Card>
+                    </View>
+                    <Card  style={styles.collap_cardstyle}>
+                        <Text style={styles.text_name}>Slider Area</Text>
+                        <FlatList
+                            showsVerticalScrollIndicator={false}
+                            nestedScrollEnabled
+                            data={data2}
+                            style={{marginLeft:10,marginRight:10}}
+                            renderItem={({ item: rowData }) => {
+                                return (
+                                    <View   style={styles.common_field}>
+                                        <List>
+                                            <ListItem selected>
+                                                <Left>
+                                                    <Text>{rowData.title}</Text>
+                                                </Left>
+                                                <Right>
+                                                    <FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />
+                                                </Right>
+                                            </ListItem>
+                                        </List>
+                                    </View>
+                                );
+                            }}
+                            keyExtractor={(item, index) => index.toString()}
+                        />
+                        <TouchableOpacity
+                            style={[styles.buttonDesign, { marginTop: 5, marginBottom: 20 }]}>
+                            <Text style={[globalStyles.header6, { color: Colors.white }]}>Track</Text>
+                        </TouchableOpacity>
+                    </Card>
+                </CollapseBody>
+            </Collapse>
+        )
+    }
+    renderDinner = () => {
+        return(
+            <Collapse>
+                <CollapseHeader onPress={()=>this.setState({food:false})} style={[styles.homebuttons,{ backgroundColor: this.state.food === false ? Colors.Status : 'white',}]}>
+                    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
+                        <Text
+                            style={[styles.QuestionInnerText, {
+                                color: this.state.active === 2 ? Colors.white : Colors.NewBackgroundColor,
+                            }]}>Dinner
+                        </Text>
+                        <Text
+                            style={styles.QuestionInnerText}><FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" /></Text>
+                    </View>
+                </CollapseHeader>
+                <CollapseBody>
+                    <View>
+                        <Card style={[styles.iconbuttons,{ backgroundColor:'white',}]}>
+                            <FlatList
+                                horizontal
+                                nestedScrollEnabled
+                                showsHorizontalScrollIndicator={false}
+                                data={data1}
+                                style={{marginLeft:10,marginRight:10}}
+                                renderItem={({ item: rowData }) => {
+                                    return (
+                                        <View   style={styles.common_field}>
+                                            <TouchableOpacity
+                                                style={styles.button_farword}
+                                                onPress={this.openHomeScreen}
+                                            >
+                                                <FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />
+                                            </TouchableOpacity>
+                                        </View>
+                                    );
+                                }}
+                                keyExtractor={(item, index) => index.toString()}
+                            />
+                        </Card>
+                    </View>
+                    <Card  style={styles.collap_cardstyle}>
+                        <Text style={styles.text_name}>Slider Area</Text>
+                        <FlatList
+                            showsVerticalScrollIndicator={false}
+                            nestedScrollEnabled
+                            data={data2}
+                            style={{marginLeft:10,marginRight:10}}
+                            renderItem={({ item: rowData }) => {
+                                return (
+                                    <View   style={styles.common_field}>
+                                        <List>
+                                            <ListItem selected>
+                                                <Left>
+                                                    <Text>{rowData.title}</Text>
+                                                </Left>
+                                                <Right>
+                                                    <FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />
+                                                </Right>
+                                            </ListItem>
+                                        </List>
+                                    </View>
+                                );
+                            }}
+                            keyExtractor={(item, index) => index.toString()}
+                        />
+                        <TouchableOpacity
+                            style={[styles.buttonDesign, { marginTop: 5, marginBottom: 20 }]}>
+                            <Text style={[globalStyles.header6, { color: Colors.white }]}>Track</Text>
+                        </TouchableOpacity>
+                    </Card>
+                </CollapseBody>
+            </Collapse>
+        )
+    }
+    renderSnacks = () => {
+        return(
+            <Collapse>
+                <CollapseHeader onPress={()=>this.setState({food:false})} style={[styles.homebuttons,{ backgroundColor: this.state.food === false ? Colors.Status : 'white',}]}>
+                    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
+                        <Text
+                            style={[styles.QuestionInnerText, {
+                                color: this.state.active === 2 ? Colors.white : Colors.NewBackgroundColor,
+                            }]}>Snacks
+                        </Text>
+                        <Text
+                            style={styles.QuestionInnerText}><FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" /></Text>
+                    </View>
+                </CollapseHeader>
+                <CollapseBody>
+                    <View>
+                        <Card style={[styles.iconbuttons,{ backgroundColor:'white',}]}>
+                            <FlatList
+                                horizontal
+                                nestedScrollEnabled
+                                showsHorizontalScrollIndicator={false}
+                                data={data1}
+                                style={{marginLeft:10,marginRight:10}}
+                                renderItem={({ item: rowData }) => {
+                                    return (
+                                        <View   style={styles.common_field}>
+                                            <TouchableOpacity
+                                                style={styles.button_farword}
+                                                onPress={this.openHomeScreen}
+                                            >
+                                                <FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />
+                                            </TouchableOpacity>
+                                        </View>
+                                    );
+                                }}
+                                keyExtractor={(item, index) => index.toString()}
+                            />
+                        </Card>
+                    </View>
+                    <Card  style={styles.collap_cardstyle}>
+                        <Text style={styles.text_name}>Slider Area</Text>
+                        <FlatList
+                            showsVerticalScrollIndicator={false}
+                            nestedScrollEnabled
+                            data={data2}
+                            style={{marginLeft:10,marginRight:10}}
+                            renderItem={({ item: rowData }) => {
+                                return (
+                                    <View   style={styles.common_field}>
+                                        <List>
+                                            <ListItem selected>
+                                                <Left>
+                                                    <Text>{rowData.title}</Text>
+                                                </Left>
+                                                <Right>
+                                                    <FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />
+                                                </Right>
+                                            </ListItem>
+                                        </List>
+                                    </View>
+                                );
+                            }}
+                            keyExtractor={(item, index) => index.toString()}
+                        />
+                        <TouchableOpacity
+                            style={[styles.buttonDesign, { marginTop: 5, marginBottom: 20 }]}>
+                            <Text style={[globalStyles.header6, { color: Colors.white }]}>Track</Text>
+                        </TouchableOpacity>
+                    </Card>
+                </CollapseBody>
+            </Collapse>
+        )
+    }
+    renderActivityTracker = () => {
+        return(
+                <View style={[styles.homebuttons,{ backgroundColor: this.state.food === false ? Colors.Status : 'white',}]}>
+                    <TouchableOpacity>
+                    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
+                        <Text
+                            style={[styles.QuestionInnerText, {
+                                color: this.state.active === 2 ? Colors.white : Colors.NewBackgroundColor,
+                            }]}>Activity Tracker
+                        </Text>
+                        <Text
+                            style={styles.QuestionInnerText}><FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" /></Text>
+                    </View>
+                    </TouchableOpacity>
+                </View>
         )
     }
 };
