@@ -26,15 +26,11 @@ export const Colors = {
     chatleftcolor: '#000000',
     BgColor: '#181818',
     DarkBlackHeading: "#171717",
+
+
+
     Status: '#8625B5',
     BGNEW: '#F3F3F3',
     lightgray: '#A1A1A1',
-
-
-    themeDarkRed: '#B50A00',
-    white: 'rgba(255, 255, 255, 1)',
-    themeGrey: '#8D8D8C',
-    black: '#000000',
-    lightBlack: '#313131',
     Motivationcolor: '#00A0DB',
 }
