@@ -265,7 +265,6 @@ export default class Home extends React.Component {
                             color="#FFA500" />}
                         number="180 Ibs"
                         numberstyle={styles.TextColorStyle}>
-
                     </CustomCard>
 
                 </View>
