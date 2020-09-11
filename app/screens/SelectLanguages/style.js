@@ -20,7 +20,6 @@ export const styles = StyleSheet.create({
     },
     Content: {
         padding: 15,
-
     },
     buttonDesign: {
         marginBottom: 5,

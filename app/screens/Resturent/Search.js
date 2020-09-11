@@ -110,7 +110,7 @@ const Search = ({ navigation }) => {
                         showsHorizontalScrollIndicator={false}
                         data={search != "" ? searchedContacts : Profile}
 
-                        keyExtractor={(item, index) => index.toString()}
+                        // keyExtractor={(item, index) => index.toString()}
                         showsVerticalScrollIndicator={false}
                         contentContainerStyle={{ paddingBottom: 30 }}
                         renderItem={({ item, index }) => {

@@ -22,7 +22,7 @@ const TabRoutes = () => {
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => (
-            <SimpleLineIcons name={'home'} size={24} color={color} />
+            <SimpleLineIcons name={'home'} size={24} color={Colors.divider} />
           ),
         }}
       />
