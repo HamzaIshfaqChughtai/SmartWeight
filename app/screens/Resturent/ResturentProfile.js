@@ -24,6 +24,7 @@ import {
 import { globalStyles } from '../../styles/globalStyles';
 import Slider from 'react-native-slider';
 import Modal from 'react-native-modal';
+import CustomFooter from '../../../app/components/CustomFooter/CustomFooter'
 const ResturentProfile = ({ navigation }) => {
 
 
@@ -209,7 +210,9 @@ const ResturentProfile = ({ navigation }) => {
 
 
             </Content>
-
+            <CustomFooter
+            navigation={navigation}
+            />
             <Modal
                 isVisible={status}
                 style={styles.modalview}

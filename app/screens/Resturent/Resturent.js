@@ -107,7 +107,7 @@ const Resturent = ({ navigation }) => {
                     <FlatList
                         showsHorizontalScrollIndicator={false}
                         data={ShowSuggested == true ? Profile : Profile.slice(0, 2)}
-                        keyExtractor={(item, index) => index.toString()}
+                        // keyExtractor={(item, index) => index.toString()}
                         showsVerticalScrollIndicator={false}
                         contentContainerStyle={{ paddingBottom: 30 }}
                         renderItem={({ item, index }) => {
@@ -179,7 +179,7 @@ const Resturent = ({ navigation }) => {
                     <FlatList
                         showsHorizontalScrollIndicator={false}
                         data={Papular == true ? Profile : Profile.slice(0, 2)}
-                        keyExtractor={(item, index) => index.toString()}
+                        // keyExtractor={(item, index) => index.toString()}
                         showsVerticalScrollIndicator={false}
                         contentContainerStyle={{ paddingBottom: 30 }}
                         renderItem={({ item, index }) => {
