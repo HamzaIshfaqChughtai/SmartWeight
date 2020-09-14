@@ -18,6 +18,7 @@ import { globalStyles } from '../../styles/globalStyles';
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import Swiper from 'react-native-swiper'
 import GuidesHome from '../Home/Guides/GuidesHome'
 
 import { Colors } from '../../styles/colors';
@@ -374,7 +375,26 @@ export default class Home extends React.Component {
                         </Card>
                     </View>
                     <Card style={styles.collap_cardstyle}>
-                        <Text style={styles.text_name}>Slider Area</Text>
+                        <Swiper
+                            showsPagination={false}
+                            style={styles.wrapper}
+                            showsButtons={true}>
+                            <View style={styles.slide1}>
+                                <Image
+                                    resizeMode={'contain'}
+                                    style={styles.SecondImageGuide}
+                                    source={require('../../images/swiperFirstGUIDE.png')} />
+                            </View>
+                            <View style={styles.slide3}>
+                                <Text style={styles.text}>And simple</Text>
+                            </View>
+                            <View style={styles.slide1}>
+                                <Image
+                                    resizeMode={'contain'}
+                                    style={styles.SecondImageGuide}
+                                    source={require('../../images/swiperFirstGUIDE.png')} />
+                            </View>
+                        </Swiper>
                         <FlatList
                             showsVerticalScrollIndicator={false}
                             nestedScrollEnabled
@@ -465,7 +485,26 @@ export default class Home extends React.Component {
                         </Card>
                     </View>
                     <Card style={styles.collap_cardstyle}>
-                        <Text style={styles.text_name}>Slider Area</Text>
+                        <Swiper
+                            showsPagination={false}
+                            style={styles.wrapper}
+                            showsButtons={true}>
+                            <View style={styles.slide1}>
+                                <Image
+                                    resizeMode={'contain'}
+                                    style={styles.SecondImageGuide}
+                                    source={require('../../images/swiperFirstGUIDE.png')} />
+                            </View>
+                            <View style={styles.slide3}>
+                                <Text style={styles.text}>And simple</Text>
+                            </View>
+                            <View style={styles.slide1}>
+                                <Image
+                                    resizeMode={'contain'}
+                                    style={styles.SecondImageGuide}
+                                    source={require('../../images/swiperFirstGUIDE.png')} />
+                            </View>
+                        </Swiper>
                         <FlatList
                             showsVerticalScrollIndicator={false}
                             nestedScrollEnabled
@@ -538,7 +577,26 @@ export default class Home extends React.Component {
                         </Card>
                     </View>
                     <Card style={styles.collap_cardstyle}>
-                        <Text style={styles.text_name}>Slider Area</Text>
+                        <Swiper
+                            showsPagination={false}
+                            style={styles.wrapper}
+                            showsButtons={true}>
+                            <View style={styles.slide1}>
+                                <Image
+                                    resizeMode={'contain'}
+                                    style={styles.SecondImageGuide}
+                                    source={require('../../images/swiperFirstGUIDE.png')} />
+                            </View>
+                            <View style={styles.slide3}>
+                                <Text style={styles.text}>And simple</Text>
+                            </View>
+                            <View style={styles.slide1}>
+                                <Image
+                                    resizeMode={'contain'}
+                                    style={styles.SecondImageGuide}
+                                    source={require('../../images/swiperFirstGUIDE.png')} />
+                            </View>
+                        </Swiper>
                         <FlatList
                             showsVerticalScrollIndicator={false}
                             nestedScrollEnabled
@@ -611,7 +669,26 @@ export default class Home extends React.Component {
                         </Card>
                     </View>
                     <Card style={styles.collap_cardstyle}>
-                        <Text style={styles.text_name}>Slider Area</Text>
+                        <Swiper
+                            showsPagination={false}
+                            style={styles.wrapper}
+                            showsButtons={true}>
+                            <View style={styles.slide1}>
+                                <Image
+                                    resizeMode={'contain'}
+                                    style={styles.SecondImageGuide}
+                                    source={require('../../images/swiperFirstGUIDE.png')} />
+                            </View>
+                            <View style={styles.slide3}>
+                                <Text style={styles.text}>And simple</Text>
+                            </View>
+                            <View style={styles.slide1}>
+                                <Image
+                                    resizeMode={'contain'}
+                                    style={styles.SecondImageGuide}
+                                    source={require('../../images/swiperFirstGUIDE.png')} />
+                            </View>
+                        </Swiper>
                         <FlatList
                             showsVerticalScrollIndicator={false}
                             nestedScrollEnabled

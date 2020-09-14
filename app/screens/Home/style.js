@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
     collap_cardstyle: {
         // width:windowWidth,
         width: '89%',
-        height: windowHeight / 2.1,
+        height: '65%',
         margin: 10,
         marginLeft: '4%',
         paddingRight: 10,
@@ -246,6 +246,16 @@ export const styles = StyleSheet.create({
     customcard: {
         backgroundColor: Colors.Status,
         marginLeft: windowWidth / 20
+    },
+    wrapper: {
+        height: 270
+    },
+    SecondImageGuide: {
+        marginTop: windowHeight/10,
+        width: 300,
+        height: 200,
+        justifyContent: 'center',
+        alignSelf: 'center'
     },
 
 });

@@ -24,15 +24,18 @@ import {
 import { globalStyles } from '../../styles/globalStyles';
 import Slider from 'react-native-slider';
 import Modal from 'react-native-modal';
-import CustomFooter from '../../../app/components/CustomFooter/CustomFooter'
+import CustomFooter from '../../../app/components/CustomFooter/CustomFooter';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 const ResturentProfile = ({ navigation }) => {
 
 
     const [sliderValue, setSliderValue] = useState(0)
     const [selfcontrol, setSelfcontrol] = useState(false)
     const [status, setStatus] = useState(false)
-    const [Profile, setPrfile] = React.useState([
+    const [value, setValue]= useState('Home')
+    const [Profile, setPrfile] =useState([
         {
+            id:1,
             image: require('../../images/BloodPressure.png'),
             Name: "Aliya",
             gender: "Vegetarian",
@@ -41,6 +44,7 @@ const ResturentProfile = ({ navigation }) => {
             selfcontrol: false
         },
         {
+            id:2,
             image: require('../../images/Asthma.png'),
             Name: "Sundas",
             gender: "Vegetarian",
@@ -51,6 +55,7 @@ const ResturentProfile = ({ navigation }) => {
 
         },
         {
+            id:3,
             image: require('../../images/Asthma.png'),
             Name: "waliya",
             gender: "Vegetarian",
@@ -61,6 +66,7 @@ const ResturentProfile = ({ navigation }) => {
 
         },
         {
+            id:4,
             image: require('../../images/Asthma.png'),
             Name: "Mukhtar",
             gender: "Vegetarian",
@@ -71,6 +77,7 @@ const ResturentProfile = ({ navigation }) => {
 
         },
         {
+            id:5,
             image: require('../../images/Asthma.png'),
             Name: "Maham",
             gender: "Vegetarian",
@@ -82,7 +89,17 @@ const ResturentProfile = ({ navigation }) => {
 
     ]);
 
-
+ selectvalue=(id)=> {
+      const data  = Profile;
+     data.forEach((elem) => {
+         elem.selfcontrol = false;
+         if (elem.id === id) {
+             elem.selfcontrol = true;
+         }
+     })
+     setPrfile([...data])
+     // setSelfcontrol(!selfcontrol)
+}
 
     return (
         <Container style={{ backgroundColor: Colors.BGNEW }}>
@@ -136,7 +153,7 @@ const ResturentProfile = ({ navigation }) => {
                             return (
                                 <TouchableOpacity
                                     onPress={() => {
-                                        setSelfcontrol(!selfcontrol)
+                                         selectvalue(item.id)
                                         navigation.navigate('ResturentProfile')
                                     }}
                                     key={index}
@@ -151,7 +168,7 @@ const ResturentProfile = ({ navigation }) => {
                                                 width: 18,
                                                 borderWidth: 1,
                                                 borderRadius: 40,
-                                                backgroundColor: selfcontrol === true ? Colors.Status : Colors.white,
+                                                backgroundColor: item.selfcontrol === true ? Colors.Status : Colors.white,
                                             }} />
 
                                             <View style={{ marginLeft: 20 }}>
@@ -212,6 +229,7 @@ const ResturentProfile = ({ navigation }) => {
             </Content>
             <CustomFooter
             navigation={navigation}
+            tab2={Colors.gold}
             />
             <Modal
                 isVisible={status}
