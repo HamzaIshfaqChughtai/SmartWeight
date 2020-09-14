@@ -113,9 +113,11 @@ const ResturentProfile = ({ navigation }) => {
                     style={styles.resturentImage}
                     source={require('../../images/res.jpg')} />
 
-                <View style={{ position: "absolute", top: 10, left: 4 }}>
+                <TouchableOpacity
+                    onPress={() => navigation.goBack()}
+                    style={{ position: "absolute", top: 10, left: 4 }}>
                     <Iconss name="keyboard-arrow-left" style={{ fontSize: 40, color: Colors.white }} />
-                </View>
+                </TouchableOpacity>
 
                 <View style={styles.ResturnetNameType}>
 
