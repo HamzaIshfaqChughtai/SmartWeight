@@ -99,6 +99,7 @@ export class GuidesHome extends Component {
                             GuideFour: false,
                             GuideFive: false,
                             GuideSix: false,
+                            GuideSeve: false,
                             GuideEight: false
                         })}
                         activeOpacity={0.7}
@@ -143,6 +144,7 @@ export class GuidesHome extends Component {
                             GuideFour: false,
                             GuideFive: false,
                             GuideSix: false,
+                            GuideSeve: false,
                             GuideEight: false
                         })}
                         activeOpacity={0.7}
@@ -188,6 +190,7 @@ export class GuidesHome extends Component {
                             GuideThree: false,
                             GuideFive: false,
                             GuideSix: false,
+                            GuideSeve: false,
                             GuideEight: false
                         })}
                         activeOpacity={0.7}
@@ -235,7 +238,8 @@ export class GuidesHome extends Component {
                             GuideFour: false,
                             GuideThree: false,
                             GuideSix: false,
-                            GuideEight: false
+                            GuideEight: false,
+                            GuideSeve: false
                         })}
                         activeOpacity={0.7}
                         style={[styles.MediaViewSecond, {
@@ -280,7 +284,8 @@ export class GuidesHome extends Component {
                             GuideFour: false,
                             GuideThree: false,
                             GuideFive: false,
-                            GuideEight: false
+                            GuideEight: false,
+                            GuideSeve: false
 
                         })}
                         style={[styles.MediaViewSecond, {
@@ -372,7 +377,7 @@ export class GuidesHome extends Component {
                             GuideThree: false,
                             GuideFive: false,
                             GuideSix: false,
-                            GuideSeven: false
+                            GuideSeve: false
 
 
                         })}

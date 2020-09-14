@@ -32,10 +32,10 @@ const ResturentProfile = ({ navigation }) => {
     const [sliderValue, setSliderValue] = useState(0)
     const [selfcontrol, setSelfcontrol] = useState(false)
     const [status, setStatus] = useState(false)
-    const [value, setValue]= useState('Home')
-    const [Profile, setPrfile] =useState([
+    const [value, setValue] = useState('Home')
+    const [Profile, setPrfile] = useState([
         {
-            id:1,
+            id: 1,
             image: require('../../images/BloodPressure.png'),
             Name: "Aliya",
             gender: "Vegetarian",
@@ -44,7 +44,7 @@ const ResturentProfile = ({ navigation }) => {
             selfcontrol: false
         },
         {
-            id:2,
+            id: 2,
             image: require('../../images/Asthma.png'),
             Name: "Sundas",
             gender: "Vegetarian",
@@ -55,7 +55,7 @@ const ResturentProfile = ({ navigation }) => {
 
         },
         {
-            id:3,
+            id: 3,
             image: require('../../images/Asthma.png'),
             Name: "waliya",
             gender: "Vegetarian",
@@ -66,7 +66,7 @@ const ResturentProfile = ({ navigation }) => {
 
         },
         {
-            id:4,
+            id: 4,
             image: require('../../images/Asthma.png'),
             Name: "Mukhtar",
             gender: "Vegetarian",
@@ -77,7 +77,7 @@ const ResturentProfile = ({ navigation }) => {
 
         },
         {
-            id:5,
+            id: 5,
             image: require('../../images/Asthma.png'),
             Name: "Maham",
             gender: "Vegetarian",
@@ -89,17 +89,17 @@ const ResturentProfile = ({ navigation }) => {
 
     ]);
 
- selectvalue=(id)=> {
-      const data  = Profile;
-     data.forEach((elem) => {
-         elem.selfcontrol = false;
-         if (elem.id === id) {
-             elem.selfcontrol = true;
-         }
-     })
-     setPrfile([...data])
-     // setSelfcontrol(!selfcontrol)
-}
+    selectvalue = (id) => {
+        const data = Profile;
+        data.forEach((elem) => {
+            elem.selfcontrol = false;
+            if (elem.id === id) {
+                elem.selfcontrol = true;
+            }
+        })
+        setPrfile([...data])
+        // setSelfcontrol(!selfcontrol)
+    }
 
     return (
         <Container style={{ backgroundColor: Colors.BGNEW }}>
@@ -151,13 +151,13 @@ const ResturentProfile = ({ navigation }) => {
                         contentContainerStyle={{ paddingBottom: 30 }}
                         renderItem={({ item, index }) => {
                             return (
-                                <TouchableOpacity
+                                <View
                                     onPress={() => {
-                                         selectvalue(item.id)
+                                        selectvalue(item.id)
                                         navigation.navigate('ResturentProfile')
                                     }}
                                     key={index}
-                                    style={styles.ProfileList}>
+                                    style={styles.ProfileresList}>
 
                                     <View style={styles.ImageUpperView}>
 
@@ -193,6 +193,7 @@ const ResturentProfile = ({ navigation }) => {
 
                                         <Slider
                                             minimumValue={0}
+                                            step={30}
                                             thumbStyle={styles.SliderStyle}
                                             style={{ width: 140 }}
                                             maximumValue={100}
@@ -202,13 +203,28 @@ const ResturentProfile = ({ navigation }) => {
                                             value={item.sliderValue}
                                             onValueChange={(sliderValue) => setSliderValue(sliderValue)} />
 
-                                        <Image
+                                        {sliderValue == "30" && <Image
                                             resizeMode={'contain'}
                                             style={{ height: 30, width: 30 }}
-                                            source={require('../../images/Asthma.png')} />
+                                            source={require('../../images/semifill.png')} />
+                                        }
+
+                                        {sliderValue == '60' && <Image
+                                            resizeMode={'contain'}
+                                            style={{ height: 30, width: 30 }}
+                                            source={require('../../images/halffill.png')} />
+                                        }
+
+                                        {sliderValue == '100' && <View style={{
+                                            backgroundColor: Colors.Status,
+                                            height: 30,
+                                            width: 30,
+                                            borderRadius: 40,
+                                        }}>
+                                        </View>}
                                     </View>
 
-                                </TouchableOpacity>
+                                </View>
                             );
                         }}
                         enableEmptySections={true}
@@ -228,8 +244,8 @@ const ResturentProfile = ({ navigation }) => {
 
             </Content>
             <CustomFooter
-            navigation={navigation}
-            tab2={Colors.gold}
+                navigation={navigation}
+                tab2={Colors.gold}
             />
             <Modal
                 isVisible={status}

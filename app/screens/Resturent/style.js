@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
 
     },
     SearchText: {
-        fontSize: 16,
+        fontSize: 14,
         fontFamily: fonts['Gotham-Medium'],
         letterSpacing: 0.04,
         color: Colors.NewBackgroundColor
@@ -41,25 +41,34 @@ export const styles = StyleSheet.create({
     ProfileList: {
         marginTop: 20,
         padding: 10,
-        height: 120,
+        height: 80,
+        borderRadius: 10,
+        backgroundColor: Colors.white,
+        alignContent: 'center',
+        justifyContent: 'center'
+    },
+    ProfileresList: {
+        marginTop: 10,
+        padding: 10,
+        height: 110,
         borderRadius: 10,
         backgroundColor: Colors.white,
         alignContent: 'center',
         justifyContent: 'center'
     },
     ClientProfileImage: {
-        width: 65,
-        height: 65,
+        width: 52,
+        height: 52,
         borderRadius: 40
     },
     ResturentName: {
-        fontSize: 16,
+        fontSize: 12,
         fontFamily: fonts['Gotham-Medium'],
         letterSpacing: 0.04,
         color: Colors.NewBackgroundColor
     },
     ResturentType: {
-        fontSize: 16,
+        fontSize: 12,
         fontFamily: fonts['Gotham-Light'],
         letterSpacing: 0.04,
         color: Colors.lightgray,
@@ -73,7 +82,7 @@ export const styles = StyleSheet.create({
         lineHeight: 30
     },
     ResturentKm: {
-        fontSize: 16,
+        fontSize: 12,
         fontFamily: fonts['Gotham-Medium'],
         letterSpacing: 0.04,
         color: Colors.Status,
@@ -103,10 +112,19 @@ export const styles = StyleSheet.create({
         borderTopRightRadius: 20,
     },
     Suggested: {
-        fontSize: 18,
-        fontFamily: fonts['Gotham-Medium'],
+        fontSize: 16,
+        fontFamily: fonts['Gotham-Bold'],
         letterSpacing: 0.04,
         marginTop: 20,
+        color: Colors.NewBackgroundColor
+    },
+    ViewMore: {
+        fontSize: 12,
+        padding: 8,
+        borderWidth: 1,
+        borderRadius: 20,
+        fontFamily: fonts['Gotham-Medium'],
+        letterSpacing: 0.04,
         color: Colors.NewBackgroundColor
     },
     ViewHead: {

@@ -124,7 +124,7 @@ const Resturent = ({ navigation }) => {
                                                 style={styles.ClientProfileImage}
                                                 source={require('../../images/profileimage.png')} />
 
-                                            <View style={{ marginLeft: 20 }}>
+                                            <View style={{ marginLeft: 12 }}>
                                                 <Text style={styles.ResturentName}>
                                                     {item.Name}
                                                 </Text>
@@ -153,7 +153,7 @@ const Resturent = ({ navigation }) => {
                             justifyContent: 'center',
                             alignSelf: 'center'
                         }}>
-                        <Text>View More</Text>
+                        <Text style={styles.ViewMore}>View More</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -223,9 +223,10 @@ const Resturent = ({ navigation }) => {
                         onPress={() => setPapular(true)}
                         style={{
                             justifyContent: 'center',
-                            alignSelf: 'center'
+                            alignSelf: 'center',
+                            marginBottom: 20
                         }}>
-                        <Text>View More</Text>
+                        <Text style={styles.ViewMore}>View More</Text>
                     </TouchableOpacity>
                 </View>
             </Content>
