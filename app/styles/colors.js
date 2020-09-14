@@ -30,6 +30,7 @@ export const Colors = {
 
 
     Status: '#8625B5',
+    Red: '#FF0000',
     BGNEW: '#F3F3F3',
     lightgray: '#A1A1A1',
     Motivationcolor: '#00A0DB',

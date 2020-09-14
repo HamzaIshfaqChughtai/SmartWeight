@@ -18,7 +18,7 @@ import { globalStyles } from '../../styles/globalStyles';
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-
+import GuidesHome from '../Home/Guides/GuidesHome'
 
 import { Colors } from '../../styles/colors';
 import {
@@ -98,7 +98,7 @@ export default class Home extends React.Component {
 
         return (
             <View style={{ backgroundColor: Colors.BGNEW }}>
-                <ScrollView>
+                <ScrollView showsVerticalScrollIndicator={false}>
                     {this.renderheaderCard()}
                     {this.state.food === true ?
                         <View>
@@ -125,7 +125,7 @@ export default class Home extends React.Component {
         return (
             <View style={styles.cardstyle}>
 
-                <View>
+                <View style={{ marginBottom: 20 }}>
 
                     <View style={styles.WelcomeView}>
                         <Text style={styles.text_welcome}>Welcome</Text>
@@ -158,7 +158,12 @@ export default class Home extends React.Component {
 
                     </View>
 
-                    {this.renderDailypromoCard()}
+                    {this.state.food === true && <View>
+                        {this.renderDailypromoCard()}
+
+                    </View>}
+
+
                 </View>
             </View>
         )
@@ -273,13 +278,35 @@ export default class Home extends React.Component {
             </View>
         )
     }
+
+
+
+
+
+
+
+
+
+
     guideTab = () => {
         return (
-            <View>
-                {this.renderBreakFast()}
+            <View style={{ backgroundColor: Colors.BGNEW }}>
+                <GuidesHome />
             </View>
         )
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -17,7 +17,6 @@ export const styles = StyleSheet.create({
     cardstyle: {
         flex: 1,
         margin: 10,
-        height: windowHeight / 2,
         borderRadius: 20,
         backgroundColor: Colors.white
 
