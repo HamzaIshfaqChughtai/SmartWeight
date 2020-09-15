@@ -21,21 +21,6 @@ export const styles = StyleSheet.create({
         backgroundColor: Colors.white
 
     },
-    collap_cardstyle: {
-        // width:windowWidth,
-        width: '89%',
-        height: '65%',
-        margin: 10,
-        marginLeft: '4%',
-        paddingRight: 10,
-        borderRadius: 20,
-        elevation: 2,
-        shadowColor: 'rgba(0,0,0,0.8)',
-        shadowOffset: { width: 0, height: 0 },
-        shadowOpacity: 0.4,
-        shadowRadius: 1,
-
-    },
     WelcomeView: {
         marginLeft: 20,
         marginTop: 20
@@ -177,19 +162,6 @@ export const styles = StyleSheet.create({
         borderRadius: 30,
         alignSelf: 'center',
     },
-    iconbuttons: {
-        // height:40,width:90,borderRadius:40,
-
-        width: '89%',
-        //width: windowWidth-30,
-        height: windowHeight / 10.5,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginLeft: '3.5%',
-        marginRight: '2%',
-        paddingRight: 10,
-        borderRadius: 25,
-    },
     questioncardview: {
         width: '100%',
         borderColor: Colors.Status,
@@ -203,11 +175,11 @@ export const styles = StyleSheet.create({
         borderRadius: 10,
     },
     QuestionInnerText: {
-        fontSize: 18,
+        fontSize: 16,
         letterSpacing: 0.04,
         textAlign: 'center',
         fontFamily: fonts['Gotham-Medium'],
-        marginTop: '6%',
+        marginTop: '2%',
         marginLeft: 15,
         justifyContent: 'center',
         alignSelf: 'center',
@@ -227,8 +199,9 @@ export const styles = StyleSheet.create({
         borderColor: Colors.Status,
         alignItems: 'center',
         justifyContent: 'center',
-        width: 50,
-        height: 50,
+        width: 40,
+        height: 40,
+        marginBottom:4,
         borderRadius: 50,
     },
     LoginButtonStyle: {
@@ -245,17 +218,109 @@ export const styles = StyleSheet.create({
     },
     customcard: {
         backgroundColor: Colors.Status,
-        marginLeft: windowWidth / 20
+        marginLeft: 16
     },
-    wrapper: {
-        height: 270
-    },
-    SecondImageGuide: {
-        marginTop: windowHeight/10,
-        width: 300,
-        height: 200,
+    MediaView: {
+        width: windowWidth - 30,
+        height: 50,
+        backgroundColor: Colors.white,
+        marginLeft:16,
+        borderRadius: 20,
+        marginTop:12,
         justifyContent: 'center',
+        alignContent: 'center',
+        alignItems:'center',
+    },
+    subfoodicon: {
+        // marginTop: 30,
+        width: 15,
+        height: 15,
+        justifyContent: 'center',
+        marginTop:3,
         alignSelf: 'center'
+    },
+    suplementicon: {
+        // marginTop: 30,
+        width: 25,
+        height: 25,
+        justifyContent: 'center',
+        marginTop:3,
+        alignSelf: 'center'
+    },
+    subfoodType: {
+        marginRight: '2%',
+        fontSize: 16,
+        fontFamily: fonts['Gotham-Medium'],
+        letterSpacing: 0.04,
+        marginTop:5,
+        color: Colors.Status
+    },
+    SliderStyle: {
+        width: 28,
+        height: 28,
+        borderRadius: 30 / 2,
+        backgroundColor: Colors.white,
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 2,
+        shadowOpacity: 0.35,
+    },
+    SupplementView: {
+        width: windowWidth - 30,
+        height: 90,
+        backgroundColor: Colors.Status,
+        marginLeft:16,
+        borderRadius: 20,
+        marginTop:12,
+        justifyContent: 'center',
+        alignContent: 'center',
+        alignItems:'center',
+    },
+    SupplementText: {
+        width:200,
+        fontSize: 16,
+        letterSpacing: 0.04,
+        color:Colors.white,
+        fontFamily: fonts['Gotham-Medium'],
+        marginTop: 15,
+        marginLeft: 15,
+        justifyContent: 'center',
+        alignSelf: 'center',
+    },
+    oops: {
+        fontSize: 18,
+        fontFamily: fonts['Gotham-Bold'],
+        letterSpacing: 0.04,
+        color: Colors.Status
+    },
+    error: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 215,
+        fontSize: 16,
+        fontFamily: fonts['Gotham-Light'],
+        letterSpacing: 0.04,
+        color: Colors.NewBackgroundColor,
+        marginTop: 20
+    },
+    ModalInner: {
+        marginLeft: 20,
+        marginRight: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 50
+    },
+    Modalbox: {
+        backgroundColor: Colors.white,
+        height: 300,
+        borderRadius: 20,
+    },
+    modalview: {
+        elevation: 2,
+        shadowColor: 'rgba(0,0,0,0.8)',
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.7,
+        shadowRadius: 2,
     },
 
 });

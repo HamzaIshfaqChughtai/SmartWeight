@@ -90,15 +90,30 @@ const ResturentProfile = ({ navigation }) => {
     ]);
 
     selectvalue = (id) => {
-        const data = Profile;
-        data.forEach((elem) => {
-            elem.selfcontrol = false;
-            if (elem.id === id) {
-                elem.selfcontrol = true;
+
+        //multi select code
+
+        let authUsers = Profile
+        for (let item of authUsers) {
+            if (item.id == id) {
+                item.selfcontrol = (item.selfcontrol == null) ? true : !item.selfcontrol;
+                break;
             }
-        })
-        setPrfile([...data])
-        // setSelfcontrol(!selfcontrol)
+        }
+        setPrfile([...authUsers])
+
+
+        //single select code
+
+        // const data = Profile;
+        // data.forEach((elem) => {
+        //     elem.selfcontrol = false;
+        //     if (elem.id === id) {
+        //         elem.selfcontrol = true;
+        //     }
+        // })
+        // setPrfile([...data])
+
     }
 
     return (
@@ -153,11 +168,12 @@ const ResturentProfile = ({ navigation }) => {
                         contentContainerStyle={{ paddingBottom: 30 }}
                         renderItem={({ item, index }) => {
                             return (
+                                <TouchableOpacity  onPress={() => {
+                                    console.log("hello")
+                                    selectvalue(item.id)
+                                    navigation.navigate('ResturentProfile')
+                                }}>
                                 <View
-                                    onPress={() => {
-                                        selectvalue(item.id)
-                                        navigation.navigate('ResturentProfile')
-                                    }}
                                     key={index}
                                     style={styles.ProfileresList}>
 
@@ -227,6 +243,7 @@ const ResturentProfile = ({ navigation }) => {
                                     </View>
 
                                 </View>
+                                </TouchableOpacity>
                             );
                         }}
                         enableEmptySections={true}

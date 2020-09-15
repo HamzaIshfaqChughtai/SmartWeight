@@ -17,9 +17,17 @@ import CustomCard from '../../components/DashboardCard/Card'
 import { globalStyles } from '../../styles/globalStyles';
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import {fonts} from '../../styles/fonts'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Swiper from 'react-native-swiper'
+import Slider from 'react-native-slider';
 import GuidesHome from '../Home/Guides/GuidesHome'
+import BreakFast from '../../screens/Home/Food/Component/BreakFast';
+ import Dinner from '../../screens/Home/Food/Component/Dinner';
+ import Lunch from '../../screens/Home/Food/Component/Lunch';
+ import Snacks from '../../screens/Home/Food/Component/Snacks';
+import Modal from 'react-native-modal';
+import GuideOne from '../../screens/Home/Guides/Component/GuideOne'
 
 import { Colors } from '../../styles/colors';
 import {
@@ -86,7 +94,14 @@ export default class Home extends React.Component {
         this.state = {
             food: true,
             guide: true,
-            active: 1
+            active: 1,
+            sliderValue:30,
+            status:false,
+            foodstatus:false,
+            breakfast:false,
+            lunch:false,
+            dinner:false,
+            snacks:false,
 
         };
     }
@@ -103,7 +118,184 @@ export default class Home extends React.Component {
                     {this.renderheaderCard()}
                     {this.state.food === true ?
                         <View>
-                            {this.foodTab()}
+                            <TouchableOpacity
+                                onPress={() => this.setState({
+                                    breakfast: !this.state.breakfast,
+                                    lunch: false,
+                                    snacks: false,
+                                    dinner: false,
+                                })}
+                                activeOpacity={0.7}
+                                style={[styles.MediaView, {
+                                    backgroundColor: this.state.breakfast == true ? Colors.Status : Colors.white
+                                }]}>
+                                <View style={{ flexDirection: 'row' }}>
+
+                                    <Text style={[styles.subfoodType, {
+                                        color: this.state.breakfast == true ? Colors.white : Colors.black
+                                    }]}>Breakast</Text>
+                                    {
+                                        this.state.breakfast==true ?
+                                        <Image
+                                            resizeMode={'contain'}
+                                            style={styles.subfoodicon}
+                                            source={require('../../images/breakfast.png')}
+                                        />:
+                                            ( <Image
+                                                resizeMode={'contain'}
+                                                style={styles.subfoodicon}
+                                                source={require('../../images/breakfast.png')}
+                                            />)
+                                    }
+
+                                </View>
+
+                            </TouchableOpacity>
+                            {this.state.breakfast && <BreakFast/>}
+
+
+                            <TouchableOpacity
+                                onPress={() => this.setState({
+                                    lunch: !this.state.lunch,
+                                    breakfast: false,
+                                    snacks: false,
+                                    dinner: false,
+                                })}
+                                activeOpacity={0.7}
+                                style={[styles.MediaView, {
+                                    backgroundColor: this.state.lunch == true ? Colors.Status : Colors.white
+                                }]}>
+                                <View style={{ flexDirection: 'row' }}>
+
+                                    <Text style={[styles.subfoodType, {
+                                        color: this.state.lunch == true ? Colors.white : Colors.black
+                                    }]}>Lunch</Text>
+                                    {
+                                        this.state.lunch==true ?
+                                            <Image
+                                                resizeMode={'contain'}
+                                                style={styles.subfoodicon}
+                                                source={require('../../images/lunch.png')}
+                                            />:
+                                            ( <Image
+                                                resizeMode={'contain'}
+                                                style={styles.subfoodicon}
+                                                source={require('../../images/lunch.png')}
+                                            />)
+                                    }
+
+                                </View>
+
+                            </TouchableOpacity>
+                            {this.state.lunch && <Lunch/>}
+
+
+
+                            <TouchableOpacity
+                                onPress={() => this.setState({
+                                    dinner: !this.state.dinner,
+                                    breakfast: false,
+                                    snacks: false,
+                                    lunch: false,
+                                })}
+                                activeOpacity={0.7}
+                                style={[styles.MediaView, {
+                                    backgroundColor: this.state.dinner == true ? Colors.Status : Colors.white
+                                }]}>
+                                <View style={{ flexDirection: 'row' }}>
+
+                                    <Text style={[styles.subfoodType, {
+                                        color: this.state.dinner == true ? Colors.white : Colors.black
+                                    }]}>Dinner</Text>
+                                    {
+                                        this.state.dinner==true ?
+                                            <Image
+                                                resizeMode={'contain'}
+                                                style={styles.subfoodicon}
+                                                source={require('../../images/dinner.png')}
+                                            />:
+                                            ( <Image
+                                                resizeMode={'contain'}
+                                                style={styles.subfoodicon}
+                                                source={require('../../images/dinner.png')}
+                                            />)
+                                    }
+
+                                </View>
+
+                            </TouchableOpacity>
+                            {this.state.dinner && <Dinner/>}
+
+
+
+
+                            <TouchableOpacity
+                                onPress={() => this.setState({
+                                    snacks: !this.state.snacks,
+                                    breakfast: false,
+                                    lunch: false,
+                                    dinner: false,
+                                })}
+                                activeOpacity={0.7}
+                                style={[styles.MediaView, {
+                                    backgroundColor: this.state.snacks == true ? Colors.Status : Colors.white
+                                }]}>
+                                <View style={{ flexDirection: 'row' }}>
+
+                                    <Text style={[styles.subfoodType, {
+                                        color: this.state.snacks == true ? Colors.white : Colors.black
+                                    }]}>Snacks</Text>
+                                    {
+                                        this.state.snacks==true ?
+                                            <Image
+                                                resizeMode={'contain'}
+                                                style={styles.subfoodicon}
+                                                source={require('../../images/snacks.png')}
+                                            />:
+                                            ( <Image
+                                                resizeMode={'contain'}
+                                                style={styles.subfoodicon}
+                                                source={require('../../images/snacks.png')}
+                                            />)
+                                    }
+
+                                </View>
+
+                            </TouchableOpacity>
+                            {this.state.snacks && <Snacks/>}
+
+                            {this.BaverageTab()}
+                            {this.renderActivityTracker()}
+                            {this.renderFreeSupplement()}
+
+                            <Modal
+                                isVisible={this.state.status}
+                                style={styles.modalview}
+                                onBackButtonPress={() => this.setState({status:false})}
+                                onBackdropPress={() =>  this.setState({status:false})}
+                                useNativeDriver={true}
+                                hardwareAccelerated={true}
+                                hideModalContentWhileAnimating={true}
+                            >
+                                <View style={styles.Modalbox}>
+                                    <View style={styles.ModalInner}>
+
+                                        <Text style={styles.oops}>Ooops!!</Text>
+                                        <Text style={styles.error}>
+                                            Your Points exceeding your spending linits,how will you achieve your desired goal like this?</Text>
+
+                                        <TouchableOpacity
+                                            onPress={() => this.setState({status:false})}
+                                            style={[styles.buttonDesign, { marginTop: 30, width: 180, borderRadius: 40 }]}>
+                                            <Text style={[globalStyles.header6, { color: Colors.white, }]}>Close</Text>
+                                        </TouchableOpacity>
+
+                                    </View>
+                                </View>
+
+                            </Modal>
+
+
                         </View>
                         :
                         <View>
@@ -207,7 +399,7 @@ export default class Home extends React.Component {
 
                 <View style={{ marginTop: 20, marginEnd: '6%' }}>
                     <ProgressCircle
-                        percent={75}
+                        percent={60}
                         radius={62}
                         borderWidth={5}
                         color={Colors.Status}
@@ -234,19 +426,13 @@ export default class Home extends React.Component {
 
 
 
-    foodTab = () => {
+    BaverageTab = () => {
         return (
-            <View>
-                {/*<Text style={styles.homebuttons}>food tab</Text>*/}
-                {this.renderBreakFast()}
-                {this.renderLunch()}
-                {this.renderDinner()}
-                {this.renderSnacks()}
                 <View style={{
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                     marginTop: 20,
-                    marginRight: '10%',
+                    marginRight: '6%',
                     alignItems: 'center',
                     justifyContent: 'center',
                 }}>
@@ -254,9 +440,8 @@ export default class Home extends React.Component {
                         cardstyle={styles.customcard}
                         textStyle={styles.TextColorStyle}
                         title="Track Baverage"
-                        icon={<FontAwesome5
-                            name={'glass-martini'}
-                            size={20} color="#FFA500" />}
+                        slider={ <Text style={{  width: 28, height: 28,}}></Text>}
+                        icon={require('../../images/baverage.png')}
                         number="8 Glasses"
                         numberstyle={styles.TextColorStyle}>
                     </CustomCard>
@@ -265,30 +450,25 @@ export default class Home extends React.Component {
                         cardstyle={styles.customcard}
                         textStyle={styles.TextColorStyle}
                         title="Track Weight"
-                        icon={<FontAwesome5
-                            name={'glass-martini'}
-                            size={20}
-                            color="#FFA500" />}
+                        slider={ <Slider
+                            minimumValue={0}
+                            step={30}
+                            thumbStyle={styles.SliderStyle}
+                            style={{ width: 100 }}
+                            maximumValue={100}
+                            minimumTrackTintColor={Colors.Red}
+                            maximumTrackTintColor='#d3d3d3'
+                            thumbTintColor={Colors.Status}
+                            value={this.state.sliderValue}
+                            onValueChange={(sliderValue) => this.setState({sliderValue:sliderValue})} />}
+                        icon={require('../../images/weight.png')}
                         number="180 Ibs"
                         numberstyle={styles.TextColorStyle}>
                     </CustomCard>
 
                 </View>
-
-                {this.renderActivityTracker()}
-            </View>
         )
     }
-
-
-
-
-
-
-
-
-
-
     guideTab = () => {
         return (
             <View style={{ backgroundColor: Colors.BGNEW }}>
@@ -296,443 +476,37 @@ export default class Home extends React.Component {
             </View>
         )
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    renderBreakFast = () => {
-        return (
-            <Collapse>
-                <CollapseHeader
-                    onPress={() => this.setState({ food: false })}
-                    style={[styles.homebuttons, { backgroundColor: this.state.food === false ? Colors.Status : 'white', }]}>
-
-                    <View style={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}>
-                        <Text
-                            style={[styles.QuestionInnerText, {
-                                color: this.state.active === 2 ? Colors.white : Colors.NewBackgroundColor,
-                            }]}>Breakast
-                        </Text>
-
-                        <Text
-                            style={styles.QuestionInnerText}>
-                            <FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />
-                        </Text>
-
-                    </View>
-                </CollapseHeader>
-
-
-
-                <CollapseBody>
-                    <View>
-                        <Card style={[styles.iconbuttons, { backgroundColor: 'white', }]}>
-                            <FlatList
-                                horizontal
-                                nestedScrollEnabled
-                                showsHorizontalScrollIndicator={false}
-                                data={data1}
-                                style={{ marginLeft: 10, marginRight: 10 }}
-                                renderItem={({ item: rowData }) => {
-                                    return (
-                                        <View style={styles.common_field}>
-                                            <TouchableOpacity
-                                                style={styles.button_farword}
-                                                onPress={this.openHomeScreen}
-                                            >
-                                                <FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />
-                                            </TouchableOpacity>
-                                        </View>
-                                    );
-                                }}
-                                keyExtractor={(item, index) => index.toString()}
-                            />
-                        </Card>
-                    </View>
-                    <Card style={styles.collap_cardstyle}>
-                        <Swiper
-                            showsPagination={false}
-                            style={styles.wrapper}
-                            showsButtons={true}>
-                            <View style={styles.slide1}>
-                                <Image
-                                    resizeMode={'contain'}
-                                    style={styles.SecondImageGuide}
-                                    source={require('../../images/swiperFirstGUIDE.png')} />
-                            </View>
-                            <View style={styles.slide3}>
-                                <Text style={styles.text}>And simple</Text>
-                            </View>
-                            <View style={styles.slide1}>
-                                <Image
-                                    resizeMode={'contain'}
-                                    style={styles.SecondImageGuide}
-                                    source={require('../../images/swiperFirstGUIDE.png')} />
-                            </View>
-                        </Swiper>
-                        <FlatList
-                            showsVerticalScrollIndicator={false}
-                            nestedScrollEnabled
-                            data={data2}
-                            style={{ marginLeft: 10, marginRight: 10 }}
-                            renderItem={({ item: rowData }) => {
-                                return (
-                                    <View style={styles.common_field}>
-                                        <List>
-                                            <ListItem selected>
-                                                <Left>
-                                                    <Text>{rowData.title}</Text>
-                                                </Left>
-                                                <Right>
-                                                    <FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />
-                                                </Right>
-                                            </ListItem>
-                                        </List>
-                                    </View>
-                                );
-                            }}
-                            keyExtractor={(item, index) => index.toString()}
-                        />
-                        <TouchableOpacity
-                            style={[styles.buttonDesign, { marginTop: 5, marginBottom: 20 }]}>
-                            <Text style={[globalStyles.header6, { color: Colors.white }]}>Track</Text>
-                        </TouchableOpacity>
-                    </Card>
-                </CollapseBody>
-            </Collapse>
-        )
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    renderLunch = () => {
-        return (
-            <Collapse>
-                <CollapseHeader
-                    onPress={() => this.setState({ food: false })}
-                    style={[styles.homebuttons, { backgroundColor: this.state.food === false ? Colors.Status : Colors.white, }]}>
-
-                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-                        <Text
-                            style={[styles.QuestionInnerText, {
-                                color: this.state.active === 2 ? Colors.white : Colors.NewBackgroundColor,
-                            }]}>Lunch
-                        </Text>
-                        <Text
-                            style={styles.QuestionInnerText}><FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" /></Text>
-                    </View>
-                </CollapseHeader>
-                <CollapseBody>
-                    <View>
-                        <Card style={[styles.iconbuttons, { backgroundColor: 'white', }]}>
-                            <FlatList
-                                horizontal
-                                nestedScrollEnabled
-                                showsHorizontalScrollIndicator={false}
-                                data={data1}
-                                style={{ marginLeft: 10, marginRight: 10 }}
-                                renderItem={({ item: rowData }) => {
-                                    return (
-                                        <View style={styles.common_field}>
-                                            <TouchableOpacity
-                                                style={styles.button_farword}
-                                                onPress={this.openHomeScreen}
-                                            >
-                                                <FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />
-                                            </TouchableOpacity>
-                                        </View>
-                                    );
-                                }}
-                                keyExtractor={(item, index) => index.toString()}
-                            />
-                        </Card>
-                    </View>
-                    <Card style={styles.collap_cardstyle}>
-                        <Swiper
-                            showsPagination={false}
-                            style={styles.wrapper}
-                            showsButtons={true}>
-                            <View style={styles.slide1}>
-                                <Image
-                                    resizeMode={'contain'}
-                                    style={styles.SecondImageGuide}
-                                    source={require('../../images/swiperFirstGUIDE.png')} />
-                            </View>
-                            <View style={styles.slide3}>
-                                <Text style={styles.text}>And simple</Text>
-                            </View>
-                            <View style={styles.slide1}>
-                                <Image
-                                    resizeMode={'contain'}
-                                    style={styles.SecondImageGuide}
-                                    source={require('../../images/swiperFirstGUIDE.png')} />
-                            </View>
-                        </Swiper>
-                        <FlatList
-                            showsVerticalScrollIndicator={false}
-                            nestedScrollEnabled
-                            data={data2}
-                            style={{ marginLeft: 10, marginRight: 10 }}
-                            renderItem={({ item: rowData }) => {
-                                return (
-                                    <View style={styles.common_field}>
-                                        <List>
-                                            <ListItem selected>
-                                                <Left>
-                                                    <Text>{rowData.title}</Text>
-                                                </Left>
-                                                <Right>
-                                                    <FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />
-                                                </Right>
-                                            </ListItem>
-                                        </List>
-                                    </View>
-                                );
-                            }}
-                            keyExtractor={(item, index) => index.toString()}
-                        />
-                        <TouchableOpacity
-                            style={[styles.buttonDesign, { marginTop: 5, marginBottom: 20 }]}>
-                            <Text style={[globalStyles.header6, { color: Colors.white }]}>Track</Text>
-                        </TouchableOpacity>
-                    </Card>
-                </CollapseBody>
-            </Collapse>
-        )
-    }
-    renderDinner = () => {
-        return (
-            <Collapse>
-                <CollapseHeader onPress={() => this.setState({ food: false })} style={[styles.homebuttons, { backgroundColor: this.state.food === false ? Colors.Status : 'white', }]}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-                        <Text
-                            style={[styles.QuestionInnerText, {
-                                color: this.state.active === 2 ? Colors.white : Colors.NewBackgroundColor,
-                            }]}>Dinner
-                        </Text>
-                        <Text
-                            style={styles.QuestionInnerText}><FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" /></Text>
-                    </View>
-                </CollapseHeader>
-                <CollapseBody>
-                    <View>
-                        <Card style={[styles.iconbuttons, { backgroundColor: 'white', }]}>
-                            <FlatList
-                                horizontal
-                                nestedScrollEnabled
-                                showsHorizontalScrollIndicator={false}
-                                data={data1}
-                                style={{ marginLeft: 10, marginRight: 10 }}
-                                renderItem={({ item: rowData }) => {
-                                    return (
-                                        <View style={styles.common_field}>
-                                            <TouchableOpacity
-                                                style={styles.button_farword}
-                                                onPress={this.openHomeScreen}
-                                            >
-                                                <FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />
-                                            </TouchableOpacity>
-                                        </View>
-                                    );
-                                }}
-                                keyExtractor={(item, index) => index.toString()}
-                            />
-                        </Card>
-                    </View>
-                    <Card style={styles.collap_cardstyle}>
-                        <Swiper
-                            showsPagination={false}
-                            style={styles.wrapper}
-                            showsButtons={true}>
-                            <View style={styles.slide1}>
-                                <Image
-                                    resizeMode={'contain'}
-                                    style={styles.SecondImageGuide}
-                                    source={require('../../images/swiperFirstGUIDE.png')} />
-                            </View>
-                            <View style={styles.slide3}>
-                                <Text style={styles.text}>And simple</Text>
-                            </View>
-                            <View style={styles.slide1}>
-                                <Image
-                                    resizeMode={'contain'}
-                                    style={styles.SecondImageGuide}
-                                    source={require('../../images/swiperFirstGUIDE.png')} />
-                            </View>
-                        </Swiper>
-                        <FlatList
-                            showsVerticalScrollIndicator={false}
-                            nestedScrollEnabled
-                            data={data2}
-                            style={{ marginLeft: 10, marginRight: 10 }}
-                            renderItem={({ item: rowData }) => {
-                                return (
-                                    <View style={styles.common_field}>
-                                        <List>
-                                            <ListItem selected>
-                                                <Left>
-                                                    <Text>{rowData.title}</Text>
-                                                </Left>
-                                                <Right>
-                                                    <FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />
-                                                </Right>
-                                            </ListItem>
-                                        </List>
-                                    </View>
-                                );
-                            }}
-                            keyExtractor={(item, index) => index.toString()}
-                        />
-                        <TouchableOpacity
-                            style={[styles.buttonDesign, { marginTop: 5, marginBottom: 20 }]}>
-                            <Text style={[globalStyles.header6, { color: Colors.white }]}>Track</Text>
-                        </TouchableOpacity>
-                    </Card>
-                </CollapseBody>
-            </Collapse>
-        )
-    }
-    renderSnacks = () => {
-        return (
-            <Collapse>
-                <CollapseHeader onPress={() => this.setState({ food: false })} style={[styles.homebuttons, { backgroundColor: this.state.food === false ? Colors.Status : 'white', }]}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-                        <Text
-                            style={[styles.QuestionInnerText, {
-                                color: this.state.active === 2 ? Colors.white : Colors.NewBackgroundColor,
-                            }]}>Snacks
-                        </Text>
-                        <Text
-                            style={styles.QuestionInnerText}><FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" /></Text>
-                    </View>
-                </CollapseHeader>
-                <CollapseBody>
-                    <View>
-                        <Card style={[styles.iconbuttons, { backgroundColor: 'white', }]}>
-                            <FlatList
-                                horizontal
-                                nestedScrollEnabled
-                                showsHorizontalScrollIndicator={false}
-                                data={data1}
-                                style={{ marginLeft: 10, marginRight: 10 }}
-                                renderItem={({ item: rowData }) => {
-                                    return (
-                                        <View style={styles.common_field}>
-                                            <TouchableOpacity
-                                                style={styles.button_farword}
-                                                onPress={this.openHomeScreen}
-                                            >
-                                                <FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />
-                                            </TouchableOpacity>
-                                        </View>
-                                    );
-                                }}
-                                keyExtractor={(item, index) => index.toString()}
-                            />
-                        </Card>
-                    </View>
-                    <Card style={styles.collap_cardstyle}>
-                        <Swiper
-                            showsPagination={false}
-                            style={styles.wrapper}
-                            showsButtons={true}>
-                            <View style={styles.slide1}>
-                                <Image
-                                    resizeMode={'contain'}
-                                    style={styles.SecondImageGuide}
-                                    source={require('../../images/swiperFirstGUIDE.png')} />
-                            </View>
-                            <View style={styles.slide3}>
-                                <Text style={styles.text}>And simple</Text>
-                            </View>
-                            <View style={styles.slide1}>
-                                <Image
-                                    resizeMode={'contain'}
-                                    style={styles.SecondImageGuide}
-                                    source={require('../../images/swiperFirstGUIDE.png')} />
-                            </View>
-                        </Swiper>
-                        <FlatList
-                            showsVerticalScrollIndicator={false}
-                            nestedScrollEnabled
-                            data={data2}
-                            style={{ marginLeft: 10, marginRight: 10 }}
-                            renderItem={({ item: rowData }) => {
-                                return (
-                                    <View style={styles.common_field}>
-                                        <List>
-                                            <ListItem selected>
-                                                <Left>
-                                                    <Text>{rowData.title}</Text>
-                                                </Left>
-                                                <Right>
-                                                    <FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" />
-                                                </Right>
-                                            </ListItem>
-                                        </List>
-                                    </View>
-                                );
-                            }}
-                            keyExtractor={(item, index) => index.toString()}
-                        />
-                        <TouchableOpacity
-                            style={[styles.buttonDesign, { marginTop: 5, marginBottom: 20 }]}>
-                            <Text style={[globalStyles.header6, { color: Colors.white }]}>Track</Text>
-                        </TouchableOpacity>
-                    </Card>
-                </CollapseBody>
-            </Collapse>
-        )
-    }
     renderActivityTracker = () => {
         return (
-            <View style={[styles.homebuttons, { backgroundColor: this.state.food === false ? Colors.Status : 'white', }]}>
-                <TouchableOpacity>
+            <View style={[styles.MediaView, {backgroundColor: this.state.food === false ? Colors.Status : 'white', }]}>
+                <TouchableOpacity onPress={()=> this.setState({status:true})}>
                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
                         <Text
                             style={[styles.QuestionInnerText, {
                                 color: this.state.active === 2 ? Colors.white : Colors.NewBackgroundColor,
                             }]}>Activity Tracker
                         </Text>
+                        <Image
+                            resizeMode={'contain'}
+                            style={styles.subfoodicon}
+                            source={require('../../images/activity.png')}/>
+                    </View>
+                </TouchableOpacity>
+            </View>
+        )
+    }
+    renderFreeSupplement = () => {
+        return (
+            <View style={[styles.SupplementView, { marginBottom:10}]}>
+                <TouchableOpacity>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
                         <Text
-                            style={styles.QuestionInnerText}><FontAwesome5 name={'glass-martini'} size={20} color="#FFA500" /></Text>
+                            style={styles.SupplementText}>Get Free Supplement Assessment
+                        </Text>
+                        <Image
+                            resizeMode={'contain'}
+                            style={styles.suplementicon}
+                            source={require('../../images/suplement.png')}/>
                     </View>
                 </TouchableOpacity>
             </View>
