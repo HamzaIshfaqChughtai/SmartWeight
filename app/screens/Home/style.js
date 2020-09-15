@@ -222,7 +222,7 @@ export const styles = StyleSheet.create({
     },
     MediaView: {
         width: windowWidth - 30,
-        height: 50,
+        height: 55,
         backgroundColor: Colors.white,
         marginLeft:16,
         borderRadius: 20,
